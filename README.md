@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Tamagotchi Duel - README</title>
+  <title>Tico e teco: duel - README</title>
 </head>
 <body>
-  <h1>Tico e Teco: Duel</h1>
+  <h1>Tico e Teco: duel</h1>
 
   <p>
-    Tico e Teco:Duel is a local two-player JavaScript game in which each player takes care of a virtual pet in real time.
+    Tico e Teco: duel is a local two-player JavaScript game in which each player takes care of a virtual pet in real time.
     The winner is the player who keeps their pet in better condition and scores the most points before the timer reaches zero.
   </p>
 
