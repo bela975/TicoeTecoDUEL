@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Tico e teco: duel - README</title>
 </head>
 <body>
   <h1>Tico e Teco: duel</h1>
