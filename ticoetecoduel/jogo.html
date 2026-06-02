@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tico e teco: duel</title>
+  <link rel="stylesheet" href="css/jogo.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="title-box">
+      <h1>Tico e teco: duel</h1>
+      <p>Cuide melhor do seu pet antes que o tempo acabe.</p>
+    </div>
+
+    <div class="timer-box">
+      <span>Tempo</span>
+      <strong id="timer">60</strong>
+    </div>
+  </header>
+
+  <main class="game-layout">
+    <section id="panel1" class="player-panel active-turn">
+      <div class="player-header">
+        <h2 id="name1">Jogador 1</h2>
+        <div class="score-box">Pontos: <span id="score1">0</span></div>
+      </div>
+
+      <div class="pet-area">
+        <img id="petImage1" class="pet-image" src="img/pet1-idle.png" alt="Pet do jogador 1">
+        <div id="effect1" class="effect-layer"></div>
+      </div>
+
+      <div class="status-bars">
+        <div class="bar-group">
+          <label>Fome</label>
+          <div class="bar"><div id="hungerBar1" class="fill hunger"></div></div>
+        </div>
+
+        <div class="bar-group">
+          <label>Higiene</label>
+          <div class="bar"><div id="cleanBar1" class="fill clean"></div></div>
+        </div>
+
+        <div class="bar-group">
+          <label>Felicidade</label>
+          <div class="bar"><div id="happyBar1" class="fill happy"></div></div>
+        </div>
+
+        <div class="bar-group">
+          <label>Energia</label>
+          <div class="bar"><div id="energyBar1" class="fill energy"></div></div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="action-btn" data-player="1" data-action="feed">W - Alimentar</button>
+        <button class="action-btn" data-player="1" data-action="bath">A - Dar banho</button>
+        <button class="action-btn" data-player="1" data-action="play">S - Brincar</button>
+        <button class="action-btn" data-player="1" data-action="sleep">D - Descansar</button>
+      </div>
+
+      <div class="needs-box">
+        <h3>Necessidades do pet</h3>
+        <ul id="needs1" class="needs-list"></ul>
+      </div>
+    </section>
+
+    <section id="panel2" class="player-panel">
+      <div class="player-header">
+        <h2 id="name2">Jogador 2</h2>
+        <div class="score-box">Pontos: <span id="score2">0</span></div>
+      </div>
+
+      <div class="pet-area">
+        <img id="petImage2" class="pet-image" src="img/pet2-idle.png" alt="Pet do jogador 2">
+        <div id="effect2" class="effect-layer"></div>
+      </div>
+
+      <div class="status-bars">
+        <div class="bar-group">
+          <label>Fome</label>
+          <div class="bar"><div id="hungerBar2" class="fill hunger"></div></div>
+        </div>
+
+        <div class="bar-group">
+          <label>Higiene</label>
+          <div class="bar"><div id="cleanBar2" class="fill clean"></div></div>
+        </div>
+
+        <div class="bar-group">
+          <label>Felicidade</label>
+          <div class="bar"><div id="happyBar2" class="fill happy"></div></div>
+        </div>
+
+        <div class="bar-group">
+          <label>Energia</label>
+          <div class="bar"><div id="energyBar2" class="fill energy"></div></div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="action-btn" data-player="2" data-action="feed">↑ - Alimentar</button>
+        <button class="action-btn" data-player="2" data-action="bath">← - Dar banho</button>
+        <button class="action-btn" data-player="2" data-action="play">↓ - Brincar</button>
+        <button class="action-btn" data-player="2" data-action="sleep">→ - Descansar</button>
+      </div>
+
+      <div class="needs-box">
+        <h3>Necessidades do pet</h3>
+        <ul id="needs2" class="needs-list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <section class="log-section">
+    <h3>Histórico das ações</h3>
+    <table class="log-table">
+      <thead>
+        <tr>
+          <th>Jogador</th>
+          <th>Ação</th>
+          <th>Tempo</th>
+          <th>Pontos</th>
+        </tr>
+      </thead>
+      <tbody id="logBody"></tbody>
+    </table>
+  </section>
+
+  <section id="resultModal" class="result-modal hidden">
+    <div class="result-card">
+      <h2>Fim de jogo</h2>
+      <p id="resultText"></p>
+      <button id="restartBtn">Jogar novamente</button>
+    </div>
+  </section>
+
+  <script src="js/classes.js"></script>
+  <script src="js/jogo.js"></script>
+</body>
+</html>
