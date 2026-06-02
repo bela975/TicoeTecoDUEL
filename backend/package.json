@@ -1,0 +1,16 @@
+{
+  "name": "tico-teco-duel-backend",
+  "version": "2.0.0",
+  "description": "Backend multiplayer do Tico e Teco Duel com Express e Socket.IO",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.3",
+    "socket.io": "^4.7.5"
+  }
+}
