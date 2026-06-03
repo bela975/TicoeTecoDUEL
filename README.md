@@ -1,16 +1,16 @@
-<<<<<<< HEAD
-# 🐹 Tico e Teco: Duel
+
+# Tico e Teco: Duel
 A multiplayer virtual pet game built with **React**, **Node.js**, **Express**, and **Socket.IO**.
 
 In **Tico e Teco: Duel**, two players compete by taking care of their own virtual pets, **Tico** and **Teco**, in real time. The goal is to maintain the best pet condition, earn points through strategic actions, and outperform the opponent before the match timer reaches zero.
 
-## 🎮 Overview
+## Overview
 
 This project is a multiplayer reinterpretation of the classic virtual pet concept.
 
 Unlike the original local version, this edition was rebuilt using a **client-server architecture**, allowing players to participate from different computers. The game state, rules, timer, scoring system, and turn management are entirely controlled by the backend, while the frontend is responsible for rendering the interface and sending player actions.
 
-## 🚀 Technologies Used
+## Technologies Used
 
 ### Frontend
 - React
@@ -24,7 +24,7 @@ Unlike the original local version, this edition was rebuilt using a **client-ser
 - Socket.IO
 - CORS
 
-## 🏗 Architecture
+## Architecture
 
 The application follows a multiplayer client-server architecture:
 
@@ -50,7 +50,7 @@ The backend is responsible for:
 - Running the game timer
 - Determining the winner
 
-## 🎯 Game Objective
+## Game Objective
 
 Each match lasts **60 seconds**.
 
@@ -74,7 +74,7 @@ Each pet has four main attributes:
 
 These attributes decrease automatically over time.
 
-## ⚡ Available Actions
+## Available Actions
 
 | Action | Primary Effect |
 |----------|----------------|
@@ -85,7 +85,7 @@ These attributes decrease automatically over time.
 
 Actions may also affect secondary attributes, creating strategic decision-making opportunities.
 
-## 🔄 Turn System
+## Turn System
 
 The game uses an alternating turn system.
 
@@ -94,7 +94,7 @@ The game uses an alternating turn system.
 - After a valid action, the turn automatically switches to the opponent.
 - Turn validation is handled by the backend.
 
-## 🏆 Scoring System
+## Scoring System
 
 Players receive points based on the usefulness of their actions.
 
@@ -109,7 +109,7 @@ Players receive points based on the usefulness of their actions.
 - Allowing attributes to reach critical levels.
 - Poor pet maintenance over time.
 
-## 🖥 User Interface
+## User Interface
 
 The game interface includes:
 
@@ -123,7 +123,7 @@ The game interface includes:
 - Dynamic pet needs list
 - Match result screen
 
-## 🌐 Multiplayer Features
+## Multiplayer Features
 
 - Room creation system
 - Join by room code
@@ -134,7 +134,7 @@ The game interface includes:
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 TicoeTecoDUEL/
@@ -159,7 +159,7 @@ TicoeTecoDUEL/
 └── .gitignore
 ```
 
-## ▶ Running Locally
+## Running Locally
 
 ### Backend
 
@@ -183,7 +183,7 @@ Open:
 http://localhost:5173
 ```
 
-## 📚 Academic Context
+## Academic Context
 
 This project was developed as part of a Front-End Development course assignment.
 
@@ -198,13 +198,13 @@ This project was developed as part of a Front-End Development course assignment.
 - Turn-based gameplay
 - Scoring and ranking system
 
-## 👩‍💻 Authors
+## Authors
 
 Developed by:
 
 - Maria Luísa Vieira Arruda
 - Isabela Spinelli Ferrari Siqueira Campos Arruda
-=======
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
