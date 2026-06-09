@@ -365,4 +365,3 @@ Developed by:
 
  <h2>More documentation:</h2>
 <li>https://docs.google.com/document/d/1T85oktD46usFF0oG4qagxSbRB9b1sgTsfLwkrEBocMU/edit?usp=sharing</li>
->>>>>>> ec7ede61dac4107f97a2faca98cd83f3916383c4
