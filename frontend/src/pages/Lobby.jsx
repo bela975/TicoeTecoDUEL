@@ -7,23 +7,30 @@ export default function Lobby({ onEnterGame }) {
   const [erro, setErro] = useState("");
   const [loading, setLoading] = useState(false);
 
-  function conectar(callback) {
-    setErro("");
+ function conectar(callback) {
+  setErro("");
 
-    if (!nome.trim()) {
-      setErro("Digite seu nome antes de entrar no jogo.");
+  if (!nome.trim()) {
+    setErro("Digite seu nome antes de entrar no jogo.");
+    return;
+  }
+
+  setLoading(true);
+
+  if (!socket.connected) {
+    socket.connect();
+  }
+
+  setTimeout(() => {
+    if (!socket.connected) {
+      setLoading(false);
+      setErro("Não foi possível conectar ao backend. Verifique se o servidor está rodando na porta 3001.");
       return;
     }
 
-    setLoading(true);
-
-    if (!socket.connected) {
-      socket.connect();
-    }
-
     callback();
-  }
-
+  }, 800);
+}
   function criarSala() {
     conectar(() => {
       socket.emit("createRoom", { nome }, (resposta) => {
