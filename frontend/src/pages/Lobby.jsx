@@ -24,7 +24,7 @@ export default function Lobby({ onEnterGame }) {
   setTimeout(() => {
     if (!socket.connected) {
       setLoading(false);
-      setErro("Não foi possível conectar ao backend. Verifique se o servidor está rodando na porta 3001.");
+      setErro("Não foi possível conectar ao backend. Verifique se a URL do servidor está correta.");
       return;
     }
 
