@@ -7,30 +7,47 @@ export default function Lobby({ onEnterGame }) {
   const [erro, setErro] = useState("");
   const [loading, setLoading] = useState(false);
 
- function conectar(callback) {
-  setErro("");
+  function conectar(callback) {
+    setErro("");
 
-  if (!nome.trim()) {
-    setErro("Digite seu nome antes de entrar no jogo.");
-    return;
-  }
-
-  setLoading(true);
-
-  if (!socket.connected) {
-    socket.connect();
-  }
-
-  setTimeout(() => {
-    if (!socket.connected) {
-      setLoading(false);
-      setErro("Não foi possível conectar ao backend. Verifique se a URL do servidor está correta.");
+    if (!nome.trim()) {
+      setErro("Digite seu nome antes de entrar no jogo.");
       return;
     }
 
-    callback();
-  }, 800);
-}
+    setLoading(true);
+
+    if (socket.connected) {
+      callback();
+      return;
+    }
+
+    socket.connect();
+
+    const timeout = setTimeout(() => {
+      if (!socket.connected) {
+        setLoading(false);
+        setErro("O servidor está iniciando. Aguarde alguns segundos e tente novamente.");
+      }
+    }, 15000);
+
+    socket.once("connect", () => {
+      clearTimeout(timeout);
+      callback();
+    });
+
+    socket.once("connect_error", () => {
+      clearTimeout(timeout);
+
+      setTimeout(() => {
+        if (!socket.connected) {
+          setLoading(false);
+          setErro("O servidor está iniciando. Aguarde alguns segundos e tente novamente.");
+        }
+      }, 5000);
+    });
+  }
+
   function criarSala() {
     conectar(() => {
       socket.emit("createRoom", { nome }, (resposta) => {
@@ -87,7 +104,7 @@ export default function Lobby({ onEnterGame }) {
           Agora em React, com backend e multiplayer em computadores diferentes.
         </p>
 
-        <form className="start-form" onSubmit={entrarSala}>
+        <div className="start-form">
           <div className="field">
             <label htmlFor="nome">Seu nome</label>
             <input
@@ -105,24 +122,26 @@ export default function Lobby({ onEnterGame }) {
             onClick={criarSala}
             disabled={loading}
           >
-            {loading ? "Carregando..." : "Criar sala"}
+            {loading ? "Conectando ao servidor..." : "Criar sala"}
           </button>
 
-          <div className="field">
-            <label htmlFor="roomCode">Código da sala</label>
-            <input
-              id="roomCode"
-              value={roomCode}
-              maxLength={5}
-              placeholder="Ex.: ABC12"
-              onChange={(e) => setRoomCode(e.target.value.toUpperCase())}
-            />
-          </div>
+          <form className="start-form" onSubmit={entrarSala}>
+            <div className="field">
+              <label htmlFor="roomCode">Código da sala</label>
+              <input
+                id="roomCode"
+                value={roomCode}
+                maxLength={5}
+                placeholder="Ex.: ABC12"
+                onChange={(e) => setRoomCode(e.target.value.toUpperCase())}
+              />
+            </div>
 
-          <button type="submit" className="secondary-btn" disabled={loading}>
-            {loading ? "Carregando..." : "Entrar em sala existente"}
-          </button>
-        </form>
+            <button type="submit" className="secondary-btn" disabled={loading}>
+              {loading ? "Conectando ao servidor..." : "Entrar em sala existente"}
+            </button>
+          </form>
+        </div>
 
         {erro && <p className="error-message">{erro}</p>}
 
